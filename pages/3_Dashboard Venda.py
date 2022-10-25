@@ -604,6 +604,7 @@ if __name__ == "__main__":
 
     # --Extração de Dados
     # Carregar Dados
+    path = 'kc_house_data.csv'
     url = 'https://opendata.arcgis.com/datasets/83fc2e72903343aabff6de8cb445b81c_2.geojson'
     data = get_data(path)
     title_widths = (0.15, 0.85)
