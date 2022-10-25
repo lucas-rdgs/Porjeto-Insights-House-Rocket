@@ -21,7 +21,7 @@ def page_header(title_widths):
     t1.title('')
     t1.image('https://cdn-icons-png.flaticon.com/512/6760/6760104.png', use_column_width=True)
     # t2.title("House Rocket Company - Sell Dashboard")
-    t2.title("House Rocket Company - Dashboard de Vendas")
+    t2.title("House Rocket Company - Dashboard de Compras")
     return t1, t2
 
 
@@ -130,7 +130,11 @@ def get_data_purchase_full(data_purchase, data):
 
 
 def interactive_purchase(df: pd.DataFrame):
-    st.header('Properties overview')
+    # st.header('Properties overview')
+    st.header('Visão geral dos Imóveis')
+    st.markdown('Nesta tabela encontram-se as informações de todos os imóveis disponíveis.')
+    st.markdown('Para navegar, utilize as barras de rolagem vertical e horizontal e os filtros localizados no lado'
+                'direito da tabela.')
     options = GridOptionsBuilder.from_dataframe(
         df, enableRowGroup=True, enableValue=True, enablePivot=True
     )
@@ -162,7 +166,7 @@ def interactive_purchase(df: pd.DataFrame):
 
 def region_overview(data, geofile):
     # st.header('Properties overview')
-    st.header('Visão geral dos Imóveis')
+    st.header('Visão geral por Região')
 
     # tab1, tab2 = st.tabs(['Portfolio Density', 'Price Density'])
     tab1, tab2 = st.tabs(['Densidade do Portfólio', 'Densidade de Preços'])
@@ -372,7 +376,7 @@ def attributes_distribution(data):
     f_floors = st.sidebar.selectbox('Número máximo de andares', data['floors'].sort_values().unique(),
                                     index=len(data['floors'].sort_values().unique()) - 1)
 
-    # f_waterview = st.sidebar.checkbox('Apenas imóveis com vista para água')
+    f_waterview = st.sidebar.checkbox('Apenas imóveis com vista para água')
 
     c1, c2 = st.columns(2)
 
@@ -440,7 +444,7 @@ if __name__ == "__main__":
 
     # --Extração de Dados
     # Carregar Dados
-    path = 'kc_house_data.csv'
+    path = r'C:/Users/Lucas/Desktop/repos/House Rocket/kc_house_data.csv'
     url = 'https://opendata.arcgis.com/datasets/83fc2e72903343aabff6de8cb445b81c_2.geojson'
     data = get_data(path)
     title_widths = (0.15, 0.85)

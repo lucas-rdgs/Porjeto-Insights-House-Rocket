@@ -138,6 +138,10 @@ def get_data_sell_full(data_sell, data):
 def interactive_sell(df: pd.DataFrame):
     # st.header('Properties overview')
     st.header('Visão geral dos Imóveis')
+    st.markdown('Nesta tabela encontram-se as informações dos imóveis que já foram selecionados para compra a partir'
+                'da base completa de imóveis disponíveis.')
+    st.markdown('Para navegar, utilize as barras de rolagem vertical e horizontal e os filtros localizados no lado'
+                'direito da tabela.')
     options = GridOptionsBuilder.from_dataframe(
         df, enableRowGroup=True, enableValue=True, enablePivot=True
     )
@@ -178,7 +182,7 @@ def interactive_sell(df: pd.DataFrame):
 def region_overview(data_sell_full, geofile):
     # st.title('Region Overview')
     st.title('Visão Geral por Região')
-
+    st.markdown('Mapas interativos com informações sobre os imóveis')
     # tab1, tab2, tab3 = st.tabs(['Portfolio Density', 'Sell Price Density', 'Gain Density'])
     tab1, tab2, tab3 = st.tabs(['Densidade do Portfólio', 'Densidade de Preços de Venda', 'Densidade de Faturamento'])
 
@@ -210,6 +214,8 @@ def region_overview(data_sell_full, geofile):
     with tab1:
         # st.header('Portfolio Density')
         st.header('Densidade do Portfólio')
+        st.markdown('Imóveis selecionados para a revenda. Selecione uma propriedade no mapa para visualizar informações'
+                    'de compra, preço recomendado de venda, condição de conservação e atributos físicos')
         folium_static(density_map)
 
     # Region Selling Price Map
@@ -306,6 +312,9 @@ def region_overview(data_sell_full, geofile):
     with tab2:
         # st.header('Selling Price Density')
         st.header('Densidade de Preço de Venda')
+        st.markdown('As áreas mais escuras concentram imóveis com maior preço de revenda. Selecione uma propriedade no '
+                    'mapa para visualizar informações de compra, preço recomendado de venda, condição de conservação e '
+                    'atributos físicos')
         folium_static(region_price_map)
 
     # Region Gain Map
@@ -401,6 +410,9 @@ def region_overview(data_sell_full, geofile):
     with tab3:
         # st.header('Gain Density')
         st.header('Densidade de Faturamento')
+        st.markdown('As áreas mais escuras concentram imóveis com maior faturamento. Selecione uma propriedade no '
+                    'mapa para visualizar informações de compra, preço recomendado de venda, condição de conservação e '
+                    'atributos físicos')
         folium_static(region_gain_map)
 
     return None
@@ -500,7 +512,7 @@ def attributes_distribution(data_sell_full):
 
     st.sidebar.title('Opções de Atributos dos Imóveis')
     st.sidebar.title('Opções de Atributos')
-    st.title('Atributos dos Imóveis')
+    st.title('Atributos Físicos dos Imóveis')
 
     # # Filters
     # f_bedrooms = st.sidebar.selectbox('Max number of bedrooms', data_sell_full['bedrooms'].sort_values().unique(),
@@ -524,7 +536,7 @@ def attributes_distribution(data_sell_full):
     f_floors = st.sidebar.selectbox('Número máximo de andares', data_sell_full['floors'].sort_values().unique(),
                                     index=len(data_sell_full['floors'].sort_values().unique()) - 1)
 
-    # f_waterview = st.sidebar.checkbox('Apenas imóveis com vista para água')
+    f_waterview = st.sidebar.checkbox('Apenas imóveis com vista para água')
 
     c1, c2 = st.columns(2)
 
@@ -592,7 +604,6 @@ if __name__ == "__main__":
 
     # --Extração de Dados
     # Carregar Dados
-    path = 'kc_house_data.csv'
     url = 'https://opendata.arcgis.com/datasets/83fc2e72903343aabff6de8cb445b81c_2.geojson'
     data = get_data(path)
     title_widths = (0.15, 0.85)
