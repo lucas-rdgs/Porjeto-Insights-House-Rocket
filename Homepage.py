@@ -272,7 +272,7 @@ st.markdown('<strong>Desenvolvimento do código</strong>', unsafe_allow_html=Tru
 st.markdown('[<img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" style="height: 50px"'
             ' align="left"/>](https://jupyter.org/) [<img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/'
             'PyCharm_Icon.svg" style="height: 50px" '
-            'align="left"/>](https://www.jetbrains.com/pt-br/pycharm/) [<img src="https://upload.wikimedia.org/'
+            'align="left"/>](https://www.jetbrains.com/pt-br/pycharm/) [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/1024px-Python.svg.png" style="height: 50px" align="left"/>](https://www.python.org/) [<img src="https://upload.wikimedia.org/'
             'wikipedia/commons/thumb/e/ed/Pandas_logo.svg/1200px-Pandas_logo.svg.png" ' 
             'style="height: 50px" align="left"/>](https://pandas.pydata.org/) [<img src="https://geopandas.org/en/'
             'latest/_images/geopandas_logo.png" style="height: 40px" '
