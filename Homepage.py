@@ -281,9 +281,7 @@ st.markdown('[<img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupy
 st.markdown('')
 st.markdown('<strong>Construção e publicação dos dashboards</strong>', unsafe_allow_html=True)
 st.markdown('[<img src="https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.svg" '
-            'style="height: 50px" align="left"/>](https://streamlit.io/) [<img src="https://blog.back4app.com/'
-            'wp-content/uploads/2020/12/O-que-e-o-Heroku.png" style="height: 50px" align="left"/>]'
-            '(http://heroku.com)<br/><br/>',
+            'style="height: 50px" align="left"/>](https://streamlit.io/)',
             unsafe_allow_html=True)
 
 st.subheader('Sobre o autor')
